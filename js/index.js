@@ -1,6 +1,10 @@
 import User from "./user.js";
 
-// your code
+class Writer extends User {
+  publishArticle() {
+    return "Article published";
+  }
+}
 
 // do not modify
 const user = new User("Sam", "Smith", 30);
