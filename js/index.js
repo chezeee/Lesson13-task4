@@ -1,15 +1,23 @@
-import User from "./user.js";
+import Passport from "./passport.js";
 
-class Writer extends User {
-  publishArticle() {
-    return "Article published";
-  }
+let firstName = document.querySelector("#first-name");
+let lastName = document.querySelector("#last-name");
+
+let answer1 = document.querySelector("#answer1");
+let answer2 = document.querySelector("#answer2");
+let answer3 = document.querySelector("#answer3");
+let answer4 = document.querySelector("#answer4");
+let answer5 = document.querySelector("#answer5");
+
+function render() {
+  let passport = new Passport(firstName.value, lastName.value);
+
+  answer1.textContent = passport.getFirstName();
+  answer2.textContent = passport.getLastName();
+  answer3.textContent = passport.getFullName();
+  answer4.textContent = passport.getInitials();
+  answer5.textContent = passport.getIsValidName();
 }
 
-// do not modify
-const user = new User("Sam", "Smith", 30);
-console.log(user); // User {firstName: 'Sam', lastName: 'Smith', age: 30}
-
-const writer = new Writer("Tom", "Roth", 20);
-console.log(writer); // Writer {firstName: 'Tom', lastName: 'Roth', age: 20}
-console.log(writer.publishArticle()); // Article published
+firstName.addEventListener("keyup", render);
+lastName.addEventListener("keyup", render);
